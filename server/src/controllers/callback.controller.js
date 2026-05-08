@@ -1,4 +1,4 @@
-import { isPhoneVerified, clearVerification } from '../utils/otpStore.js';
+import { isPhoneVerified, clearVerification } from './otp.controller.js';
 import { makeCall } from '../services/twilio.service.js';
 import config from '../config/env.js';
 
@@ -17,11 +17,20 @@ export async function initiateCallback(req, res, next) {
       return res.status(403).json({ error: 'Phone number not verified. Please complete OTP verification first.' });
     }
 
-    const twimlUrl = `${config.baseUrl}/api/callback/twiml`;
+    // Check if Twilio is configured for voice calls
+    if (!config.twilioAccountSid || config.twilioAccountSid.startsWith('your_')) {
+      clearVerification(phoneNumber);
+      return res.json({
+        success: true,
+        callSid: 'VOICE_NOT_CONFIGURED',
+        message: 'Phone verified! Voice calling is not configured, but here is the detailed response.',
+        detailedResponse: aiResponse,
+      });
+    }
 
+    const twimlUrl = `${config.baseUrl}/api/callback/twiml`;
     const callSid = await makeCall(phoneNumber, twimlUrl);
 
-    // Store the response so the TwiML webhook can read it
     callResponses.set(callSid, {
       query,
       aiResponse,
@@ -36,7 +45,6 @@ export async function initiateCallback(req, res, next) {
     }
 
     clearVerification(phoneNumber);
-
     res.json({ success: true, callSid });
   } catch (err) {
     next(err);
