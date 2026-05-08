@@ -1,0 +1,42 @@
+[
+  {
+    "id": "SALE001",
+    "name": "Spring Electronics Sale",
+    "discount": 20,
+    "type": "percentage",
+    "categories": ["Electronics"],
+    "validFrom": "2026-05-01",
+    "validUntil": "2026-05-15",
+    "description": "20% off all electronics items"
+  },
+  {
+    "id": "SALE002",
+    "name": "Fitness Season Kickoff",
+    "discount": 15,
+    "type": "percentage",
+    "categories": ["Sports"],
+    "validFrom": "2026-05-01",
+    "validUntil": "2026-05-31",
+    "description": "15% off all sports and fitness equipment"
+  },
+  {
+    "id": "SALE003",
+    "name": "Buy More Save More - Books",
+    "discount": 10,
+    "type": "fixed",
+    "categories": ["Books"],
+    "validFrom": "2026-04-15",
+    "validUntil": "2026-05-20",
+    "description": "$10 off when you buy 2 or more books"
+  },
+  {
+    "id": "SALE004",
+    "name": "Home Essentials Bundle Deal",
+    "discount": 25,
+    "type": "percentage",
+    "categories": ["Home & Kitchen"],
+    "validFrom": "2026-05-05",
+    "validUntil": "2026-05-12",
+    "description": "25% off Home & Kitchen items this week only"
+  }
+]

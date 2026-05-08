@@ -1,0 +1,182 @@
+[
+  {
+    "id": "PROD001",
+    "name": "Wireless Bluetooth Headphones",
+    "category": "Electronics",
+    "price": 79.99,
+    "currency": "USD",
+    "description": "Noise-cancelling over-ear headphones with 30hr battery life",
+    "stock": 45,
+    "rating": 4.5
+  },
+  {
+    "id": "PROD002",
+    "name": "Smart Fitness Watch",
+    "category": "Electronics",
+    "price": 199.99,
+    "currency": "USD",
+    "description": "GPS-enabled fitness tracker with heart rate monitor and sleep tracking",
+    "stock": 30,
+    "rating": 4.3
+  },
+  {
+    "id": "PROD003",
+    "name": "Portable Bluetooth Speaker",
+    "category": "Electronics",
+    "price": 49.99,
+    "currency": "USD",
+    "description": "Waterproof portable speaker with 12hr battery and deep bass",
+    "stock": 60,
+    "rating": 4.6
+  },
+  {
+    "id": "PROD004",
+    "name": "USB-C Fast Charger",
+    "category": "Electronics",
+    "price": 29.99,
+    "currency": "USD",
+    "description": "65W GaN charger with dual USB-C ports, compatible with laptops and phones",
+    "stock": 100,
+    "rating": 4.7
+  },
+  {
+    "id": "PROD005",
+    "name": "Classic Denim Jacket",
+    "category": "Clothing",
+    "price": 89.99,
+    "currency": "USD",
+    "description": "Vintage-wash denim jacket with button closure, available in S-XXL",
+    "stock": 25,
+    "rating": 4.4
+  },
+  {
+    "id": "PROD006",
+    "name": "Running Shoes Pro",
+    "category": "Clothing",
+    "price": 129.99,
+    "currency": "USD",
+    "description": "Lightweight mesh running shoes with responsive cushioning",
+    "stock": 40,
+    "rating": 4.5
+  },
+  {
+    "id": "PROD007",
+    "name": "Cotton Crew T-Shirt Pack (3)",
+    "category": "Clothing",
+    "price": 34.99,
+    "currency": "USD",
+    "description": "3-pack premium cotton t-shirts in black, white, and grey",
+    "stock": 80,
+    "rating": 4.2
+  },
+  {
+    "id": "PROD008",
+    "name": "Stainless Steel Water Bottle",
+    "category": "Home & Kitchen",
+    "price": 24.99,
+    "currency": "USD",
+    "description": "Double-wall insulated 750ml bottle, keeps drinks cold 24hrs or hot 12hrs",
+    "stock": 70,
+    "rating": 4.8
+  },
+  {
+    "id": "PROD009",
+    "name": "Non-Stick Cookware Set (10-piece)",
+    "category": "Home & Kitchen",
+    "price": 149.99,
+    "currency": "USD",
+    "description": "Complete ceramic non-stick cookware set with pots, pans, and lids",
+    "stock": 15,
+    "rating": 4.3
+  },
+  {
+    "id": "PROD010",
+    "name": "Aromatherapy Essential Oil Diffuser",
+    "category": "Home & Kitchen",
+    "price": 39.99,
+    "currency": "USD",
+    "description": "Ultrasonic diffuser with LED mood lighting and auto-shutoff, 300ml capacity",
+    "stock": 55,
+    "rating": 4.6
+  },
+  {
+    "id": "PROD011",
+    "name": "Bamboo Cutting Board Set",
+    "category": "Home & Kitchen",
+    "price": 27.99,
+    "currency": "USD",
+    "description": "Set of 3 organic bamboo cutting boards in different sizes",
+    "stock": 35,
+    "rating": 4.4
+  },
+  {
+    "id": "PROD012",
+    "name": "The Art of Programming",
+    "category": "Books",
+    "price": 42.99,
+    "currency": "USD",
+    "description": "Comprehensive guide to software engineering best practices, 800 pages",
+    "stock": 20,
+    "rating": 4.9
+  },
+  {
+    "id": "PROD013",
+    "name": "Mindful Living Journal",
+    "category": "Books",
+    "price": 18.99,
+    "currency": "USD",
+    "description": "Guided daily journal with prompts for mindfulness and gratitude",
+    "stock": 50,
+    "rating": 4.5
+  },
+  {
+    "id": "PROD014",
+    "name": "Yoga Mat Premium",
+    "category": "Sports",
+    "price": 59.99,
+    "currency": "USD",
+    "description": "6mm thick eco-friendly TPE yoga mat with alignment lines and carry strap",
+    "stock": 40,
+    "rating": 4.7
+  },
+  {
+    "id": "PROD015",
+    "name": "Adjustable Dumbbell Set",
+    "category": "Sports",
+    "price": 179.99,
+    "currency": "USD",
+    "description": "Adjustable dumbbells from 5-52.5 lbs each, replaces 15 sets of weights",
+    "stock": 10,
+    "rating": 4.6
+  },
+  {
+    "id": "PROD016",
+    "name": "Resistance Bands Set (5-pack)",
+    "category": "Sports",
+    "price": 22.99,
+    "currency": "USD",
+    "description": "5 resistance levels from light to extra heavy, includes door anchor and bag",
+    "stock": 65,
+    "rating": 4.3
+  },
+  {
+    "id": "PROD017",
+    "name": "Wireless Earbuds",
+    "category": "Electronics",
+    "price": 59.99,
+    "currency": "USD",
+    "description": "True wireless earbuds with active noise cancellation and 8hr battery",
+    "stock": 55,
+    "rating": 4.4
+  },
+  {
+    "id": "PROD018",
+    "name": "Leather Crossbody Bag",
+    "category": "Clothing",
+    "price": 69.99,
+    "currency": "USD",
+    "description": "Genuine leather crossbody bag with adjustable strap and multiple compartments",
+    "stock": 20,
+    "rating": 4.5
+  }
+]

@@ -1,0 +1,57 @@
+.otp-verify label {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(160, 174, 192, 0.8);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.otp-verify-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.otp-verify-row input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 14px;
+  background: rgba(245, 158, 11, 0.04);
+  color: #e2e8f0;
+  font-size: 1.3rem;
+  font-family: 'Inter', monospace;
+  letter-spacing: 10px;
+  text-align: center;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.otp-verify-row input:focus {
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+.otp-verify-row button {
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+}
+
+.otp-verify-row button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+}
+
+.otp-verify-row button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

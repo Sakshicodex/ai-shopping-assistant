@@ -1,0 +1,83 @@
+[
+  {
+    "orderId": "ORD-10001",
+    "customerEmail": "demo@example.com",
+    "items": [
+      { "productId": "PROD001", "name": "Wireless Bluetooth Headphones", "quantity": 1, "price": 79.99 }
+    ],
+    "total": 79.99,
+    "status": "shipped",
+    "trackingNumber": "TRK-ABC123",
+    "orderDate": "2026-04-28",
+    "estimatedDelivery": "2026-05-08",
+    "shippingAddress": "123 Main St, Springfield"
+  },
+  {
+    "orderId": "ORD-10002",
+    "customerEmail": "demo@example.com",
+    "items": [
+      { "productId": "PROD006", "name": "Running Shoes Pro", "quantity": 1, "price": 129.99 },
+      { "productId": "PROD016", "name": "Resistance Bands Set (5-pack)", "quantity": 1, "price": 22.99 }
+    ],
+    "total": 152.98,
+    "status": "delivered",
+    "trackingNumber": "TRK-DEF456",
+    "orderDate": "2026-04-15",
+    "estimatedDelivery": "2026-04-22",
+    "shippingAddress": "456 Oak Ave, Riverside"
+  },
+  {
+    "orderId": "ORD-10003",
+    "customerEmail": "jane@example.com",
+    "items": [
+      { "productId": "PROD009", "name": "Non-Stick Cookware Set (10-piece)", "quantity": 1, "price": 149.99 }
+    ],
+    "total": 149.99,
+    "status": "processing",
+    "trackingNumber": null,
+    "orderDate": "2026-05-05",
+    "estimatedDelivery": "2026-05-12",
+    "shippingAddress": "789 Pine Rd, Lakewood"
+  },
+  {
+    "orderId": "ORD-10004",
+    "customerEmail": "jane@example.com",
+    "items": [
+      { "productId": "PROD002", "name": "Smart Fitness Watch", "quantity": 1, "price": 199.99 },
+      { "productId": "PROD014", "name": "Yoga Mat Premium", "quantity": 1, "price": 59.99 }
+    ],
+    "total": 259.98,
+    "status": "out_for_delivery",
+    "trackingNumber": "TRK-GHI789",
+    "orderDate": "2026-04-30",
+    "estimatedDelivery": "2026-05-06",
+    "shippingAddress": "789 Pine Rd, Lakewood"
+  },
+  {
+    "orderId": "ORD-10005",
+    "customerEmail": "bob@example.com",
+    "items": [
+      { "productId": "PROD012", "name": "The Art of Programming", "quantity": 2, "price": 42.99 }
+    ],
+    "total": 85.98,
+    "status": "returned",
+    "trackingNumber": "TRK-JKL012",
+    "orderDate": "2026-04-10",
+    "estimatedDelivery": "2026-04-17",
+    "shippingAddress": "321 Elm St, Brookfield"
+  },
+  {
+    "orderId": "ORD-10006",
+    "customerEmail": "demo@example.com",
+    "items": [
+      { "productId": "PROD010", "name": "Aromatherapy Essential Oil Diffuser", "quantity": 1, "price": 39.99 },
+      { "productId": "PROD008", "name": "Stainless Steel Water Bottle", "quantity": 2, "price": 24.99 }
+    ],
+    "total": 89.97,
+    "status": "shipped",
+    "trackingNumber": "TRK-MNO345",
+    "orderDate": "2026-05-02",
+    "estimatedDelivery": "2026-05-09",
+    "shippingAddress": "123 Main St, Springfield"
+  }
+]
