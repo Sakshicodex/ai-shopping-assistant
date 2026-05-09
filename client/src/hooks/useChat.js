@@ -1,6 +1,5 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import * as api from '../api/chatApi';
-import { setupRecaptcha, sendOtp as firebaseSendOtp, verifyOtp as firebaseVerifyOtp } from '../api/firebase';
 
 export default function useChat() {
   const [messages, setMessages] = useState([
@@ -16,11 +15,6 @@ export default function useChat() {
   const [error, setError] = useState(null);
   const [pendingQuery, setPendingQuery] = useState(null);
   const [pendingResponse, setPendingResponse] = useState(null);
-
-  // Setup invisible recaptcha on mount
-  useEffect(() => {
-    setupRecaptcha('recaptcha-container');
-  }, []);
 
   const addMessage = useCallback((role, content, extra = {}) => {
     setMessages((prev) => [
@@ -70,11 +64,11 @@ export default function useChat() {
     try {
       // Format number with + if not present
       const formattedPhone = phone.startsWith('+') ? phone : `+${phone}`;
-      await firebaseSendOtp(formattedPhone);
+      await api.sendOtp(formattedPhone);
       setMode('otp');
-      addMessage('assistant', `We've sent a verification code to ${formattedPhone}. Please enter it below.`);
+      addMessage('assistant', `OTP sent to ${formattedPhone}. Enter the 6-digit code below.`);
     } catch (err) {
-      const msg = err.message || 'Failed to send OTP. Please try again.';
+      const msg = err.response?.data?.error || err.message || 'Failed to send OTP. Please try again.';
       setError(msg);
     } finally {
       setIsLoading(false);
@@ -86,7 +80,8 @@ export default function useChat() {
     setIsLoading(true);
 
     try {
-      const verified = await firebaseVerifyOtp(otp);
+      const formattedPhone = phoneNumber.startsWith('+') ? phoneNumber : `+${phoneNumber}`;
+      const { verified } = await api.verifyOtp(formattedPhone, otp);
       if (!verified) {
         setError('Invalid OTP. Please try again.');
         setIsLoading(false);
@@ -96,7 +91,6 @@ export default function useChat() {
       addMessage('assistant', 'Phone verified! Initiating your callback now...');
       setMode('calling');
 
-      const formattedPhone = phoneNumber.startsWith('+') ? phoneNumber : `+${phoneNumber}`;
       await api.initiateCallback(formattedPhone, pendingQuery, pendingResponse);
       addMessage('assistant', "We're calling you now! You'll receive a call shortly with a detailed explanation.");
     } catch (err) {

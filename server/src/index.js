@@ -6,6 +6,7 @@ import config from './config/env.js';
 import chatRoutes from './routes/chat.routes.js';
 import callbackRoutes from './routes/callback.routes.js';
 import orderRoutes from './routes/order.routes.js';
+import otpRoutes from './routes/otp.routes.js';
 import { errorHandler } from './middleware/errorHandler.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/chat', chatRoutes);
 app.use('/api/callback', callbackRoutes);
 app.use('/api/orders', orderRoutes);
+app.use('/api/otp', otpRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });

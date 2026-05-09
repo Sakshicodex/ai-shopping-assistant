@@ -7,7 +7,14 @@ const __dirname = dirname(__filename);
 
 dotenv.config({ path: resolve(__dirname, '../../.env') });
 
-const required = ['GROQ_API_KEY', 'TABBLY_API_KEY', 'TABBLY_ORG_ID', 'TABBLY_AGENT_ID', 'TABBLY_PHONE_NUMBER'];
+const required = [
+  'GROQ_API_KEY',
+  'TABBLY_API_KEY',
+  'TABBLY_ORG_ID',
+  'TABBLY_AGENT_ID',
+  'TABBLY_PHONE_NUMBER',
+  'TWOFACTOR_API_KEY',
+];
 
 for (const key of required) {
   if (!process.env[key] || process.env[key].startsWith('your_')) {
@@ -21,6 +28,6 @@ export default {
   tabblyOrgId: process.env.TABBLY_ORG_ID,
   tabblyAgentId: process.env.TABBLY_AGENT_ID,
   tabblyPhoneNumber: process.env.TABBLY_PHONE_NUMBER,
+  twofactorApiKey: process.env.TWOFACTOR_API_KEY,
   port: parseInt(process.env.PORT || '3001', 10),
-  baseUrl: process.env.BASE_URL || 'http://localhost:3001',
 };

@@ -1,4 +1,5 @@
 import { triggerCall } from '../services/tabbly.service.js';
+import { isPhoneVerified, clearVerification } from '../utils/otpStore.js';
 
 export async function initiateCallback(req, res, next) {
   try {
@@ -6,6 +7,10 @@ export async function initiateCallback(req, res, next) {
 
     if (!phoneNumber || !aiResponse) {
       return res.status(400).json({ error: 'Phone number and AI response are required.' });
+    }
+
+    if (!isPhoneVerified(phoneNumber)) {
+      return res.status(403).json({ error: 'Phone number is not verified. Please verify via OTP first.' });
     }
 
     const firstLine = 'Hi! This is ShopSmart AI calling. I have some detailed information about your query.';
@@ -16,6 +21,8 @@ Be helpful, friendly, and thorough in explaining. Ask if they have any follow-up
 Speak in the language the customer speaks (Hindi or English).`;
 
     const result = await triggerCall(phoneNumber, firstLine, customInstruction);
+
+    clearVerification(phoneNumber);
 
     res.json({ success: true, callId: result.room_name || 'initiated' });
   } catch (err) {

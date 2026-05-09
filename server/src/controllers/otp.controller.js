@@ -1,7 +1,12 @@
-import { sendOtp as msg91SendOtp, verifyOtp as msg91VerifyOtp } from '../services/msg91.service.js';
-
-// Track verified phones for callback initiation
-const verifiedPhones = new Set();
+import { sendOtp as send2FactorOtp, verifyOtp as verify2FactorOtp } from '../services/twofactor.service.js';
+import {
+  setSession,
+  getSession,
+  clearSession,
+  markVerified,
+  isPhoneVerified,
+  clearVerification,
+} from '../utils/otpStore.js';
 
 export async function sendOtp(req, res, next) {
   try {
@@ -9,16 +14,14 @@ export async function sendOtp(req, res, next) {
 
     if (!phoneNumber || !/^\+?[1-9]\d{6,14}$/.test(phoneNumber)) {
       return res.status(400).json({
-        error: 'Valid phone number with country code is required (e.g., 919876543210).',
+        error: 'Valid phone number with country code is required (e.g., +919876543210).',
       });
     }
 
-    // MSG91 expects number with country code but no +
-    const mobile = phoneNumber.replace('+', '');
+    const sessionId = await send2FactorOtp(phoneNumber);
+    setSession(phoneNumber, sessionId);
 
-    await msg91SendOtp(mobile);
-
-    res.json({ success: true, message: 'OTP sent successfully.' });
+    res.json({ success: true, message: 'OTP sent to your phone.' });
   } catch (err) {
     next(err);
   }
@@ -32,24 +35,24 @@ export async function verifyOtp(req, res, next) {
       return res.status(400).json({ error: 'Phone number and OTP are required.' });
     }
 
-    const mobile = phoneNumber.replace('+', '');
-    const verified = await msg91VerifyOtp(mobile, otp);
+    const sessionId = getSession(phoneNumber);
+    if (!sessionId) {
+      return res.status(400).json({ verified: false, error: 'OTP expired. Please request a new one.' });
+    }
+
+    const verified = await verify2FactorOtp(sessionId, otp);
 
     if (!verified) {
       return res.status(400).json({ verified: false, error: 'Invalid or expired OTP.' });
     }
 
-    verifiedPhones.add(phoneNumber);
+    clearSession(phoneNumber);
+    markVerified(phoneNumber);
+
     res.json({ verified: true });
   } catch (err) {
     next(err);
   }
 }
 
-export function isPhoneVerified(phoneNumber) {
-  return verifiedPhones.has(phoneNumber);
-}
-
-export function clearVerification(phoneNumber) {
-  verifiedPhones.delete(phoneNumber);
-}
+export { isPhoneVerified, clearVerification };

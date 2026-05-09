@@ -17,7 +17,6 @@ function App() {
         </div>
       </div>
       <ChatWidget />
-      <div id="recaptcha-container"></div>
     </div>
   );
 }
