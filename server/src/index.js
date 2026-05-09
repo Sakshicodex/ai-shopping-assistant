@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 import config from './config/env.js';
 import chatRoutes from './routes/chat.routes.js';
-import otpRoutes from './routes/otp.routes.js';
 import callbackRoutes from './routes/callback.routes.js';
 import orderRoutes from './routes/order.routes.js';
 import { errorHandler } from './middleware/errorHandler.js';
@@ -14,13 +13,13 @@ const __dirname = dirname(__filename);
 
 const app = express();
 
+app.set('trust proxy', 1);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // API routes
 app.use('/api/chat', chatRoutes);
-app.use('/api/otp', otpRoutes);
 app.use('/api/callback', callbackRoutes);
 app.use('/api/orders', orderRoutes);
 
