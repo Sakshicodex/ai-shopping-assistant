@@ -2,8 +2,11 @@ import { getCatalogSummary } from '../services/catalog.service.js';
 
 export function buildSystemPrompt() {
   const { products, sales, orders } = getCatalogSummary();
+  const today = new Date().toISOString().split('T')[0];
 
   return `You are a friendly and helpful AI shopping assistant for ShopSmart, an online e-commerce store. Your job is to help customers with their shopping needs.
+
+Today's date is ${today}. Use this when calculating delivery timelines, "X days from now", or whether an estimated delivery date has already passed.
 
 ## Your Capabilities
 - Answer questions about products (prices, descriptions, availability, ratings)
