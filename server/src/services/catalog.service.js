@@ -44,6 +44,10 @@ export function getOrderStatus(orderId) {
   return orders.find((o) => o.orderId === orderId) || null;
 }
 
+export function getAllOrders() {
+  return orders;
+}
+
 export function getOrdersByEmail(email) {
   return orders.filter((o) => o.customerEmail === email);
 }

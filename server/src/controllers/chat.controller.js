@@ -1,4 +1,4 @@
-import { chat } from '../services/claude.service.js';
+import { chat } from '../services/llm.service.js';
 
 export async function handleChat(req, res, next) {
   try {

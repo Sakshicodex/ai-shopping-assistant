@@ -1,7 +1,8 @@
 const sessions = new Map();
-const verifiedPhones = new Set();
+const verifiedPhones = new Map();
 
 const SESSION_TTL_MS = 5 * 60 * 1000;
+const VERIFICATION_TTL_MS = 10 * 60 * 1000;
 
 export function setSession(phoneNumber, sessionId) {
   sessions.set(phoneNumber, { sessionId, expiresAt: Date.now() + SESSION_TTL_MS });
@@ -22,11 +23,17 @@ export function clearSession(phoneNumber) {
 }
 
 export function markVerified(phoneNumber) {
-  verifiedPhones.add(phoneNumber);
+  verifiedPhones.set(phoneNumber, Date.now() + VERIFICATION_TTL_MS);
 }
 
 export function isPhoneVerified(phoneNumber) {
-  return verifiedPhones.has(phoneNumber);
+  const expiresAt = verifiedPhones.get(phoneNumber);
+  if (!expiresAt) return false;
+  if (Date.now() > expiresAt) {
+    verifiedPhones.delete(phoneNumber);
+    return false;
+  }
+  return true;
 }
 
 export function clearVerification(phoneNumber) {
